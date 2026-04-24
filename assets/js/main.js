@@ -1,13 +1,35 @@
-const themeToggle = document.getElementById("themeToggle");
 const body = document.body;
+const themeToggle = document.getElementById("themeToggle");
+const mobileThemeToggle = document.getElementById("mobileThemeToggle");
 
-themeToggle.addEventListener("click", () => {
+function updateThemeButtons() {
+  const isDark = body.classList.contains("theme-dark");
+
+  if (themeToggle) {
+    themeToggle.textContent = isDark ? "☼" : "☽";
+  }
+
+  if (mobileThemeToggle) {
+    const icon = mobileThemeToggle.querySelector("span");
+
+    if (icon) {
+      icon.textContent = isDark ? "☼" : "☽";
+    }
+  }
+}
+
+function toggleTheme() {
   body.classList.toggle("theme-light");
   body.classList.toggle("theme-dark");
+  updateThemeButtons();
+}
 
-  if (body.classList.contains("theme-dark")) {
-    themeToggle.textContent = "☼";
-  } else {
-    themeToggle.textContent = "☽";
-  }
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", toggleTheme);
+}
+
+if (mobileThemeToggle) {
+  mobileThemeToggle.addEventListener("click", toggleTheme);
+}
+
+updateThemeButtons();

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <!-- Configurações básicas da página -->
+  <!-- Base -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Conecta Fatec | Feed</title>
+  <title>Conecta Fatec | Mural</title>
 
   <!-- Bootstrap -->
   <link
@@ -16,26 +16,23 @@
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- CSS próprio -->
+  <!-- CSS -->
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 
 <body class="theme-light">
 
-  <!-- Botão de alternar tema -->
+  <!-- Tema -->
   <button id="themeToggle" class="theme-toggle-btn page-theme-toggle" type="button" aria-label="Alternar tema">
     ☽
   </button>
 
-  <!-- Estrutura principal do feed -->
   <main class="feed-page">
-
     <div class="feed-layout">
 
-      <!-- Menu lateral -->
-      <aside class="sidebar">
+      <!-- Sidebar desktop -->
+      <aside class="sidebar desktop-sidebar">
 
-        <!-- Logo -->
         <a href="feed.html" class="sidebar-logo">
           <img
             src="../assets/img/logo-light.png"
@@ -50,36 +47,15 @@
           />
         </a>
 
-        <!-- Navegação principal -->
         <nav class="sidebar-nav">
-
-          <a href="feed.html" class="sidebar-link active">
-            <span>Feed</span>
-          </a>
-
-          <a href="profile.html" class="sidebar-link">
-            <span>Perfil</span>
-          </a>
-
-          <a href="communities.html" class="sidebar-link">
-            <span>Comunidades</span>
-          </a>
-
-          <a href="friends.html" class="sidebar-link">
-            <span>Amizades</span>
-          </a>
-
-          <a href="#" class="sidebar-link">
-            <span>Notificações</span>
-          </a>
-
-          <a href="#" class="sidebar-link">
-            <span>Configurações</span>
-          </a>
-
+          <a href="feed.html" class="sidebar-link active">Feed</a>
+          <a href="profile.html" class="sidebar-link">Perfil</a>
+          <a href="communities.html" class="sidebar-link">Comunidades</a>
+          <a href="friends.html" class="sidebar-link">Amizades</a>
+          <a href="#" class="sidebar-link">Notificações</a>
+          <a href="#" class="sidebar-link">Configurações</a>
         </nav>
 
-        <!-- Botão fake de novo post -->
         <button
           class="new-post-btn"
           type="button"
@@ -89,7 +65,6 @@
           Novo post
         </button>
 
-        <!-- Usuário logado -->
         <a href="profile.html" class="logged-user">
           <div class="user-avatar">
             KR
@@ -103,48 +78,138 @@
 
       </aside>
 
-      <!-- Conteúdo do feed -->
+      <!-- Topbar mobile -->
+      <header class="mobile-topbar">
+        <a href="feed.html" class="mobile-topbar-logo">
+          <img
+            src="../assets/img/logo-light.png"
+            alt="Logo Conecta Fatec"
+            class="sidebar-logo-img logo-light"
+          />
+
+          <img
+            src="../assets/img/logo-dark.png"
+            alt="Logo Conecta Fatec"
+            class="sidebar-logo-img logo-dark"
+          />
+        </a>
+
+        <button
+          class="mobile-menu-btn"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#mobileMenu"
+          aria-controls="mobileMenu"
+          aria-label="Abrir menu"
+        >
+          ☰
+        </button>
+      </header>
+
+      <!-- Menu mobile -->
+      <div
+        class="offcanvas offcanvas-end mobile-offcanvas"
+        tabindex="-1"
+        id="mobileMenu"
+        aria-labelledby="mobileMenuLabel"
+      >
+        <div class="offcanvas-header">
+          <h2 class="offcanvas-title" id="mobileMenuLabel">Menu</h2>
+
+          <button
+            type="button"
+            class="btn-close mobile-offcanvas-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Fechar"
+          ></button>
+        </div>
+
+        <div class="offcanvas-body">
+          <nav class="mobile-nav">
+            <a href="feed.html" class="sidebar-link active">Feed</a>
+            <a href="profile.html" class="sidebar-link">Perfil</a>
+            <a href="communities.html" class="sidebar-link">Comunidades</a>
+            <a href="friends.html" class="sidebar-link">Amizades</a>
+            <a href="#" class="sidebar-link">Notificações</a>
+            <a href="#" class="sidebar-link">Configurações</a>
+          </nav>
+          <button id="mobileThemeToggle" class="mobile-theme-btn" type="button">
+            Alterar tema <span>☽</span>
+            </button>
+          <button
+            class="new-post-btn mobile-new-post-btn"
+            type="button"
+            data-bs-toggle="modal"
+            data-bs-target="#newPostModal"
+          >
+            Novo post
+          </button>
+
+          <a href="profile.html" class="logged-user mobile-logged-user">
+            <div class="user-avatar">
+              KR
+            </div>
+
+            <div>
+              <strong>Kevin Ramos</strong>
+              <span>@kevin.dev</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Mural -->
       <section class="feed-content">
 
-        <!-- Cabeçalho -->
-        <header class="feed-header">
+        <header class="feed-header feed-hero">
           <div>
-            <h1>Feed</h1>
-            <p>Veja o que está acontecendo no Conecta Fatec.</p>
+            <span class="feed-kicker">Conecta Fatec</span>
+            <h1>Feed acadêmico</h1>
+            <p>
+              Acompanhe publicações, dúvidas e atualizações dos alunos conectados à nossa rede.
+            </p>
           </div>
         </header>
 
-        <!-- Filtros do feed -->
-        <div class="feed-tabs" role="tablist">
+        <!-- Filtros -->
+        <section class="feed-control-card">
 
-          <button
-            class="feed-tab active"
-            id="general-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#general-posts"
-            type="button"
-            role="tab"
-          >
-            Posts gerais
-          </button>
+          <div class="feed-control-text">
+            <h2>Publicações</h2>
+          </div>
 
-          <button
-            class="feed-tab"
-            id="friends-tab"
-            data-bs-toggle="tab"
-            data-bs-target="#friends-posts"
-            type="button"
-            role="tab"
-          >
-            Amigos
-          </button>
+          <div class="feed-tabs" role="tablist">
 
-        </div>
+            <button
+              class="feed-tab active"
+              id="general-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#general-posts"
+              type="button"
+              role="tab"
+            >
+              Geral
+            </button>
 
-        <!-- Conteúdo das abas -->
-        <div class="tab-content">
+            <button
+              class="feed-tab"
+              id="friends-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#friends-posts"
+              type="button"
+              role="tab"
+            >
+              Amigos
+            </button>
 
-          <!-- Posts gerais -->
+          </div>
+
+        </section>
+
+        <!-- Abas -->
+        <div class="tab-content feed-tab-content">
+
+          <!-- Geral -->
           <div
             class="tab-pane fade show active"
             id="general-posts"
@@ -152,198 +217,198 @@
             aria-labelledby="general-tab"
           >
 
-            <!-- Post do usuário logado -->
-            <article class="post-card">
-              <a href="profile.html" class="post-avatar user-avatar">
-                KR
-              </a>
+            <div class="posts-list">
 
-              <div class="post-body">
+              <article class="post-card">
+                <a href="profile.html" class="post-avatar user-avatar">
+                  KR
+                </a>
 
-                <div class="post-header">
-                  <div>
-                    <a href="profile.html" class="post-author">Kevin Ramos</a>
-                    <span>@kevin.dev · agora</span>
+                <div class="post-body">
+
+                  <div class="post-header">
+                    <div>
+                      <a href="profile.html" class="post-author">Kevin Ramos</a>
+                      <span>@kevin.dev · agora</span>
+                    </div>
                   </div>
-                </div>
 
-                <p class="post-text">
-                  Finalizando a vitrine visual do Conecta Fatec. A ideia é apresentar
-                  o projeto com páginas estáticas, dados falsos e uma experiência parecida
-                  com uma rede social real.
-                </p>
+                  <p class="post-text">
+                    Finalizando a vitrine visual do Conecta Fatec. A ideia é apresentar
+                    o projeto com páginas estáticas, dados falsos e uma experiência parecida
+                    com uma rede social real.
+                  </p>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
 
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
 
-                  <button type="button" class="post-action-btn owner-action">
-                    Editar
-                  </button>
+                    <button type="button" class="post-action-btn owner-action">
+                      Editar
+                    </button>
 
-                  <button type="button" class="post-action-btn owner-action delete-action">
-                    Excluir
-                  </button>
-                </div>
-
-              </div>
-            </article>
-
-            <!-- Post do outro usuário -->
-            <article class="post-card">
-              <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
-                MB
-              </a>
-
-              <div class="post-body">
-
-                <div class="post-header">
-                  <div>
-                    <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
-                    <span>@m.bertelli · 18 min</span>
+                    <button type="button" class="post-action-btn owner-action delete-action">
+                      Excluir
+                    </button>
                   </div>
+
                 </div>
+              </article>
 
-                <p class="post-text">
-                  Entrei na comunidade de Desenvolvimento Web. Muito legal ver alunos
-                  compartilhando projetos, dúvidas e ideias para portfólio.
-                </p>
+              <article class="post-card">
+                <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
+                  MB
+                </a>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
+                <div class="post-body">
 
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
-                </div>
-
-                <div class="post-comment">
-                  <a href="profile.html" class="comment-avatar">KR</a>
-
-                  <div>
-                    <p>
-                      <strong>Kevin Ramos</strong>
-                      Também entrei nela. Acho que vai ser uma boa comunidade para trocar
-                      materiais e ideias de projetos.
-                    </p>
+                  <div class="post-header">
+                    <div>
+                      <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
+                      <span>@m.bertelli · 18 min</span>
+                    </div>
                   </div>
-                </div>
 
-              </div>
-            </article>
+                  <p class="post-text">
+                    Entrei na comunidade de Desenvolvimento Web. Muito legal ver alunos
+                    compartilhando projetos, dúvidas e ideias para portfólio.
+                  </p>
 
-            <!-- Post do usuário logado em comunidade -->
-            <article class="post-card">
-              <a href="profile.html" class="post-avatar user-avatar">
-                KR
-              </a>
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
 
-              <div class="post-body">
-
-                <div class="post-header">
-                  <div>
-                    <a href="profile.html" class="post-author">Kevin Ramos</a>
-                    <span>@kevin.dev · 1 h</span>
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
                   </div>
-                </div>
 
-                <p class="post-text">
-                  Hoje revisei autenticação, rotas e organização de templates no Django.
-                  Aos poucos o backend está ficando mais limpo e fácil de manter.
-                </p>
+                  <div class="post-comment">
+                    <a href="profile.html" class="comment-avatar">KR</a>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
-
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
-
-                  <button type="button" class="post-action-btn owner-action">
-                    Editar
-                  </button>
-
-                  <button type="button" class="post-action-btn owner-action delete-action">
-                    Excluir
-                  </button>
-                </div>
-
-              </div>
-            </article>
-
-            <!-- Post do outro usuário -->
-            <article class="post-card">
-              <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
-                MB
-              </a>
-
-              <div class="post-body">
-
-                <div class="post-header">
-                  <div>
-                    <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
-                    <span>@m.bertelli · 2 h</span>
+                    <div>
+                      <p>
+                        <strong>Kevin Ramos</strong>
+                        Também entrei nela. Acho que vai ser uma boa comunidade para trocar
+                        materiais e ideias de projetos.
+                      </p>
+                    </div>
                   </div>
+
                 </div>
+              </article>
 
-                <p class="post-text">
-                  Alguém tem indicação de material simples para revisar responsividade
-                  com Bootstrap? Quero melhorar algumas páginas do meu projeto.
-                </p>
+              <article class="post-card">
+                <a href="profile.html" class="post-avatar user-avatar">
+                  KR
+                </a>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
+                <div class="post-body">
 
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
+                  <div class="post-header">
+                    <div>
+                      <a href="profile.html" class="post-author">Kevin Ramos</a>
+                      <span>@kevin.dev · 1 h</span>
+                    </div>
+                  </div>
+
+                  <p class="post-text">
+                    Hoje revisei autenticação, rotas e organização de templates no Django.
+                    Aos poucos o backend está ficando mais limpo e fácil de manter.
+                  </p>
+
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
+
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
+
+                    <button type="button" class="post-action-btn owner-action">
+                      Editar
+                    </button>
+
+                    <button type="button" class="post-action-btn owner-action delete-action">
+                      Excluir
+                    </button>
+                  </div>
+
                 </div>
+              </article>
 
-              </div>
-            </article>
+              <article class="post-card">
+                <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
+                  MB
+                </a>
 
-            <footer class="feed-footer">
-              Fim dos posts
-            </footer>
+                <div class="post-body">
+
+                  <div class="post-header">
+                    <div>
+                      <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
+                      <span>@m.bertelli · 2 h</span>
+                    </div>
+                  </div>
+
+                  <p class="post-text">
+                    Alguém tem indicação de material simples para revisar responsividade
+                    com Bootstrap? Quero melhorar algumas páginas do meu projeto.
+                  </p>
+
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
+
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
+                  </div>
+
+                </div>
+              </article>
+
+              <footer class="feed-footer">
+                Fim dos posts
+              </footer>
+
+            </div>
 
           </div>
 
-          <!-- Posts de amigos -->
+          <!-- Amigos -->
           <div
             class="tab-pane fade"
             id="friends-posts"
@@ -351,98 +416,101 @@
             aria-labelledby="friends-tab"
           >
 
-            <!-- Apenas posts do amigo Matheus -->
-            <article class="post-card">
-              <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
-                MB
-              </a>
+            <div class="posts-list">
 
-              <div class="post-body">
+              <article class="post-card">
+                <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
+                  MB
+                </a>
 
-                <div class="post-header">
-                  <div>
-                    <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
-                    <span>@m.bertelli · 18 min</span>
+                <div class="post-body">
+
+                  <div class="post-header">
+                    <div>
+                      <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
+                      <span>@m.bertelli · 18 min</span>
+                    </div>
                   </div>
-                </div>
 
-                <p class="post-text">
-                  Entrei na comunidade de Desenvolvimento Web. Muito legal ver alunos
-                  compartilhando projetos, dúvidas e ideias para portfólio.
-                </p>
+                  <p class="post-text">
+                    Entrei na comunidade de Desenvolvimento Web. Muito legal ver alunos
+                    compartilhando projetos, dúvidas e ideias para portfólio.
+                  </p>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
 
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
-                </div>
-
-                <div class="post-comment">
-                  <a href="profile.html" class="comment-avatar">KR</a>
-
-                  <div>
-                    <p>
-                      <strong>Kevin Ramos</strong>
-                      Também entrei nela. Acho que vai ser uma boa comunidade para trocar
-                      materiais e ideias de projetos.
-                    </p>
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
                   </div>
-                </div>
 
-              </div>
-            </article>
+                  <div class="post-comment">
+                    <a href="profile.html" class="comment-avatar">KR</a>
 
-            <article class="post-card">
-              <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
-                MB
-              </a>
-
-              <div class="post-body">
-
-                <div class="post-header">
-                  <div>
-                    <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
-                    <span>@m.bertelli · 2 h</span>
+                    <div>
+                      <p>
+                        <strong>Kevin Ramos</strong>
+                        Também entrei nela. Acho que vai ser uma boa comunidade para trocar
+                        materiais e ideias de projetos.
+                      </p>
+                    </div>
                   </div>
+
                 </div>
+              </article>
 
-                <p class="post-text">
-                  Alguém tem indicação de material simples para revisar responsividade
-                  com Bootstrap? Quero melhorar algumas páginas do meu projeto.
-                </p>
+              <article class="post-card">
+                <a href="profileuser.html" class="post-avatar user-avatar user-avatar-alt">
+                  MB
+                </a>
 
-                <div class="post-actions">
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
-                    </svg>
-                    Comentar
-                  </button>
+                <div class="post-body">
 
-                  <button type="button" class="post-action-btn">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
-                    </svg>
-                    Curtir
-                  </button>
+                  <div class="post-header">
+                    <div>
+                      <a href="profileuser.html" class="post-author">Matheus Bertelii</a>
+                      <span>@m.bertelli · 2 h</span>
+                    </div>
+                  </div>
+
+                  <p class="post-text">
+                    Alguém tem indicação de material simples para revisar responsividade
+                    com Bootstrap? Quero melhorar algumas páginas do meu projeto.
+                  </p>
+
+                  <div class="post-actions">
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 20.25c4.97 0 9-3.36 9-7.5s-4.03-7.5-9-7.5-9 3.36-9 7.5c0 1.64.64 3.15 1.72 4.38L3.75 21l4.2-1.35c1.22.38 2.59.6 4.05.6Z" />
+                      </svg>
+                      Comentar
+                    </button>
+
+                    <button type="button" class="post-action-btn">
+                      <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.8 4.6a5.4 5.4 0 0 0-7.6 0L12 5.8l-1.2-1.2a5.4 5.4 0 0 0-7.6 7.6L12 21l8.8-8.8a5.4 5.4 0 0 0 0-7.6Z" />
+                      </svg>
+                      Curtir
+                    </button>
+                  </div>
+
                 </div>
+              </article>
 
-              </div>
-            </article>
+              <footer class="feed-footer">
+                Fim dos posts
+              </footer>
 
-            <footer class="feed-footer">
-              Fim dos posts
-            </footer>
+            </div>
 
           </div>
 
@@ -451,10 +519,9 @@
       </section>
 
     </div>
-
   </main>
 
-  <!-- Modal fake de criação de post -->
+  <!-- Modal: novo post -->
   <div
     class="modal fade"
     id="newPostModal"
@@ -512,12 +579,11 @@
     </div>
   </div>
 
-  <!-- Bootstrap JS -->
+  <!-- Scripts -->
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
   </script>
 
-  <!-- JavaScript próprio -->
   <script src="../assets/js/main.js"></script>
 </body>
 </html>
