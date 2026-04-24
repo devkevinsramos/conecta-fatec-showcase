@@ -1630,6 +1630,182 @@ body.theme-dark .community-create-card p {
   color: #94a3b8;
 }
 
+/* Amizades */
+.friends-content {
+  background-color: #ffffff;
+}
+
+.friends-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.friend-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 22px;
+  background-color: #ffffff;
+  padding: 18px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.friend-card:hover {
+  background-color: #f8fafc;
+}
+
+.friend-card-avatar {
+  width: 54px;
+  height: 54px;
+  min-width: 54px;
+  font-size: 0.95rem;
+}
+
+.friend-card-body {
+  min-width: 0;
+  width: 100%;
+}
+
+.friend-card-name {
+  display: block;
+  color: #172033;
+  font-size: 1rem;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.friend-card-name:hover {
+  color: #2563eb;
+}
+
+.friend-card-body span {
+  display: block;
+  color: #64748b;
+  font-size: 0.86rem;
+  margin-bottom: 10px;
+}
+
+.friend-card-body p {
+  color: #334155;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+
+.friend-card-btn {
+  border: none;
+  border-radius: 999px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 8px 14px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.friend-card-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.remove-friend-btn {
+  background-color: #ffffff;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.remove-friend-btn:hover {
+  background-color: #fff1f2;
+  color: #dc2626;
+  transform: translateY(-1px);
+}
+
+.cancel-request-btn {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #dbe3ef;
+}
+
+.cancel-request-btn:hover {
+  background-color: #e2e8f0;
+  color: #334155;
+  transform: translateY(-1px);
+}
+
+.disabled-action-btn {
+  background-color: #e8f0ff;
+  color: #2563eb;
+  cursor: default;
+}
+
+.disabled-action-btn:hover {
+  background-color: #e8f0ff;
+  color: #2563eb;
+  transform: none;
+}
+
+/* Amizades - tema escuro */
+body.theme-dark .friends-content {
+  background-color: #0f172a;
+}
+
+body.theme-dark .friend-card {
+  background-color: #111827;
+  border-color: #263244;
+}
+
+body.theme-dark .friend-card:hover {
+  background-color: #162033;
+}
+
+body.theme-dark .friend-card-name {
+  color: #f8fafc;
+}
+
+body.theme-dark .friend-card-name:hover {
+  color: #60a5fa;
+}
+
+body.theme-dark .friend-card-body span {
+  color: #94a3b8;
+}
+
+body.theme-dark .friend-card-body p {
+  color: #cbd5e1;
+}
+
+body.theme-dark .remove-friend-btn {
+  background-color: #111827;
+  color: #f87171;
+  border-color: #7f1d1d;
+}
+
+body.theme-dark .remove-friend-btn:hover {
+  background-color: #1f1215;
+  color: #f87171;
+}
+
+body.theme-dark .cancel-request-btn {
+  background-color: #1e293b;
+  color: #cbd5e1;
+  border-color: #334155;
+}
+
+body.theme-dark .cancel-request-btn:hover {
+  background-color: #334155;
+  color: #f8fafc;
+}
+
+body.theme-dark .disabled-action-btn {
+  background-color: #1e293b;
+  color: #60a5fa;
+}
+
+body.theme-dark .disabled-action-btn:hover {
+  background-color: #1e293b;
+  color: #60a5fa;
+}
+
 /* Menu mobile */
 .mobile-topbar,
 .mobile-offcanvas {
@@ -1814,6 +1990,9 @@ body.theme-dark .mobile-theme-btn:hover {
 }
 
 .communities-grid {
+  grid-template-columns: 1fr;
+}
+.friends-grid {
   grid-template-columns: 1fr;
 }
 }
@@ -2073,5 +2252,14 @@ body.theme-dark .mobile-theme-btn:hover {
   height: 66px;
   min-width: 66px;
   border-radius: 20px;
+}
+.friend-card {
+  flex-direction: column;
+}
+
+.friend-card-avatar {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
 }
 }
