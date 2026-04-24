@@ -8,6 +8,14 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+a {
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+}
+
 /* Tema claro */
 body.theme-light {
   background-color: #f6f8fc;
@@ -20,8 +28,7 @@ body.theme-dark {
   color: #f8fafc;
 }
 
-/* Logo */
-/* Logo */
+/* Logo da página de login */
 .brand-logo {
   width: 100%;
   max-width: 400px;
@@ -36,6 +43,7 @@ body.theme-dark {
   height: auto;
   object-fit: contain;
 }
+
 /* Exibe a logo correta de acordo com o tema */
 .logo-dark {
   display: none;
@@ -152,7 +160,25 @@ body.theme-dark .custom-input::placeholder {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+  font-weight: 700;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  background-color: #f1f5f9;
+}
+
+body.theme-dark .theme-toggle-btn {
+  background-color: #111827;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+body.theme-dark .theme-toggle-btn:hover {
+  background-color: #1e293b;
 }
 
 .theme-toggle-btn:hover {
@@ -164,7 +190,7 @@ body.theme-dark .custom-input::placeholder {
   position: fixed;
   top: 24px;
   right: 24px;
-  z-index: 10;
+  z-index: 20;
 }
 
 body.theme-dark .theme-toggle-btn {
@@ -186,7 +212,577 @@ body.theme-dark .fake-warning {
   color: #94a3b8;
 }
 
-/* Responsividade */
+/* Página de feed */
+.feed-page {
+  min-height: 100vh;
+  background-color: #f6f8fc;
+}
+
+body.theme-dark .feed-page {
+  background-color: #0f172a;
+}
+
+/* Layout principal do feed */
+.feed-layout {
+  width: 100%;
+  max-width: 1180px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+}
+
+/* Menu lateral */
+.sidebar {
+  min-height: 100vh;
+  padding: 28px 20px;
+  border-right: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+body.theme-dark .sidebar {
+  border-right-color: #263244;
+}
+
+/* Logo do menu lateral */
+.sidebar-logo {
+  width: 190px;
+  display: flex;
+}
+
+.sidebar-logo-img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Navegação lateral */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+  color: #334155;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 16px;
+  border-radius: 999px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.sidebar-link:hover,
+.sidebar-link.active {
+  background-color: #e8f0ff;
+  color: #2563eb;
+}
+
+body.theme-dark .sidebar-link {
+  color: #cbd5e1;
+}
+
+body.theme-dark .sidebar-link:hover,
+body.theme-dark .sidebar-link.active {
+  background-color: #1e293b;
+  color: #60a5fa;
+}
+
+/* Botão fake de novo post */
+.new-post-btn {
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  background-color: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 13px 18px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.new-post-btn:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+/* Usuário logado no menu */
+.logged-user {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #172033;
+  padding: 12px;
+  border-radius: 18px;
+  transition: background-color 0.2s ease;
+}
+
+.logged-user:hover {
+  background-color: #e8f0ff;
+}
+
+.logged-user strong {
+  display: block;
+  font-size: 0.95rem;
+}
+
+.logged-user span {
+  display: block;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+body.theme-dark .logged-user {
+  color: #f8fafc;
+}
+
+body.theme-dark .logged-user:hover {
+  background-color: #1e293b;
+}
+
+body.theme-dark .logged-user span {
+  color: #94a3b8;
+}
+
+/* Avatares */
+.user-avatar {
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.user-avatar-alt {
+  background-color: #0f766e;
+}
+
+/* Conteúdo principal do feed */
+.feed-content {
+  min-height: 100vh;
+  border-right: 1px solid #e2e8f0;
+  background-color: #ffffff;
+}
+
+body.theme-dark .feed-content {
+  background-color: #0f172a;
+  border-right-color: #263244;
+}
+
+/* Cabeçalho do feed */
+.feed-header {
+  padding: 26px 28px 18px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.feed-header h1 {
+  font-size: 1.7rem;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.feed-header p {
+  margin: 0;
+  color: #64748b;
+}
+
+body.theme-dark .feed-header {
+  border-bottom-color: #263244;
+}
+
+body.theme-dark .feed-header p {
+  color: #94a3b8;
+}
+
+/* Abas do feed */
+.feed-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.feed-tab {
+  border: none;
+  background-color: transparent;
+  color: #64748b;
+  font-weight: 700;
+  padding: 16px 12px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  position: relative;
+}
+
+.feed-tab:hover {
+  background-color: #f1f5f9;
+  color: #2563eb;
+}
+
+.feed-tab.active {
+  color: #2563eb;
+}
+
+.feed-tab.active::after {
+  content: "";
+  width: 70px;
+  height: 3px;
+  border-radius: 999px;
+  background-color: #2563eb;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+body.theme-dark .feed-tabs {
+  border-bottom-color: #263244;
+}
+
+body.theme-dark .feed-tab {
+  color: #94a3b8;
+}
+
+body.theme-dark .feed-tab:hover {
+  background-color: #111827;
+  color: #60a5fa;
+}
+
+body.theme-dark .feed-tab.active {
+  color: #60a5fa;
+}
+
+body.theme-dark .feed-tab.active::after {
+  background-color: #60a5fa;
+}
+
+/* Cards de post */
+.post-card {
+  display: flex;
+  gap: 14px;
+  padding: 20px 28px;
+  border-bottom: 1px solid #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.post-card:hover {
+  background-color: #f8fafc;
+}
+
+.post-body {
+  width: 100%;
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.post-author {
+  color: #172033;
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+.post-author:hover {
+  color: #2563eb;
+}
+
+.post-header span {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+.post-text {
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.community-label {
+  color: #64748b;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+}
+
+.community-label a {
+  color: #2563eb;
+  font-weight: 700;
+}
+
+/* Ações dos posts */
+.post-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.post-action-btn {
+  border: none;
+  background-color: transparent;
+  color: #64748b;
+  font-size: 0.9rem;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.post-action-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.9;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.post-action-btn:hover {
+  color: #2563eb;
+}
+
+.owner-action {
+  font-weight: 700;
+}
+
+.delete-action:hover {
+  color: #dc2626;
+}
+
+/* Comentário dentro do post */
+.post-comment {
+  margin-top: 16px;
+  padding: 14px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  display: flex;
+  gap: 10px;
+  background-color: #f8fafc;
+}
+
+.comment-avatar {
+  width: 34px;
+  height: 34px;
+  min-width: 34px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+.comment-avatar:hover {
+  color: #ffffff;
+}
+
+.post-comment p {
+  margin: 0;
+  color: #334155;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.post-comment strong {
+  color: #172033;
+  margin-right: 4px;
+}
+
+/* Footer do feed */
+.feed-footer {
+  padding: 28px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+/* Tema escuro dos posts */
+body.theme-dark .post-card {
+  border-bottom-color: #263244;
+}
+
+body.theme-dark .post-card:hover {
+  background-color: #111827;
+}
+
+body.theme-dark .post-author {
+  color: #f8fafc;
+}
+
+body.theme-dark .post-author:hover {
+  color: #60a5fa;
+}
+
+body.theme-dark .post-header span,
+body.theme-dark .community-label,
+body.theme-dark .post-action-btn {
+  color: #94a3b8;
+}
+
+body.theme-dark .post-action-btn:hover {
+  color: #60a5fa;
+}
+
+body.theme-dark .delete-action:hover {
+  color: #f87171;
+}
+
+body.theme-dark .post-text {
+  color: #cbd5e1;
+}
+
+body.theme-dark .community-label a {
+  color: #60a5fa;
+}
+
+body.theme-dark .post-comment {
+  background-color: #111827;
+  border-color: #263244;
+}
+
+body.theme-dark .post-comment p {
+  color: #cbd5e1;
+}
+
+body.theme-dark .post-comment strong {
+  color: #f8fafc;
+}
+
+body.theme-dark .feed-footer {
+  color: #94a3b8;
+}
+
+/* Modal de novo post */
+.post-modal-content {
+  border-radius: 22px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  color: #172033;
+}
+
+.post-modal-header {
+  border-bottom: 1px solid #e2e8f0;
+  padding: 18px 22px;
+}
+
+.post-modal-header h2 {
+  font-weight: 800;
+}
+
+.post-modal-body {
+  padding: 22px;
+}
+
+.create-post-modal-area {
+  display: flex;
+  gap: 14px;
+}
+
+.create-post-modal-area textarea {
+  width: 100%;
+  resize: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #172033;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.create-post-modal-area textarea::placeholder {
+  color: #94a3b8;
+}
+
+.post-modal-warning {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin: 18px 0 0;
+}
+
+.post-modal-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 16px 22px;
+}
+
+.modal-cancel-btn,
+.modal-publish-btn {
+  border: none;
+  border-radius: 999px;
+  font-weight: 700;
+  padding: 9px 18px;
+  transition: background-color 0.2s ease;
+}
+
+.modal-cancel-btn {
+  background-color: #e2e8f0;
+  color: #172033;
+}
+
+.modal-cancel-btn:hover {
+  background-color: #cbd5e1;
+}
+
+.modal-publish-btn {
+  background-color: #2563eb;
+  color: #ffffff;
+}
+
+.modal-publish-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Tema escuro do modal */
+body.theme-dark .post-modal-content {
+  background-color: #111827;
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+body.theme-dark .post-modal-header,
+body.theme-dark .post-modal-footer {
+  border-color: #263244;
+}
+
+body.theme-dark .post-modal-close {
+  filter: invert(1) grayscale(100%);
+}
+
+body.theme-dark .create-post-modal-area textarea {
+  color: #f8fafc;
+}
+
+body.theme-dark .post-modal-warning {
+  color: #94a3b8;
+}
+
+body.theme-dark .modal-cancel-btn {
+  background-color: #1e293b;
+  color: #f8fafc;
+}
+
+body.theme-dark .modal-cancel-btn:hover {
+  background-color: #334155;
+}
+
+/* Responsividade da página de login */
 @media (max-width: 768px) {
   .login-page {
     min-height: auto;
@@ -211,5 +807,153 @@ body.theme-dark .fake-warning {
   .page-theme-toggle {
     top: 16px;
     right: 16px;
+  }
+}
+
+/* Responsividade do feed */
+@media (max-width: 992px) {
+  .feed-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .sidebar {
+    padding: 24px 14px;
+  }
+
+  .sidebar-logo {
+    width: 170px;
+  }
+
+  .sidebar-link {
+    font-size: 0.95rem;
+    padding: 11px 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .feed-layout {
+    display: block;
+  }
+
+  .sidebar {
+    min-height: auto;
+    width: 100%;
+    padding: 12px;
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    position: sticky;
+    top: 0;
+    z-index: 15;
+    background-color: #f6f8fc;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow-x: auto;
+  }
+
+  body.theme-dark .sidebar {
+    background-color: #0f172a;
+    border-bottom-color: #263244;
+  }
+
+  .sidebar-logo {
+    width: 44px;
+    min-width: 44px;
+    overflow: hidden;
+  }
+
+  .sidebar-logo-img {
+    width: 170px;
+    max-width: none;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    gap: 4px;
+    min-width: max-content;
+  }
+
+  .sidebar-link {
+    width: auto;
+    height: 42px;
+    padding: 0 14px;
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+
+  .new-post-btn {
+    min-width: 110px;
+    width: auto;
+    padding: 0 16px;
+    height: 42px;
+    font-size: 0.9rem;
+  }
+
+  .logged-user {
+    display: none;
+  }
+
+  .feed-content {
+    min-height: auto;
+    border-right: none;
+  }
+
+  .feed-header {
+    padding: 22px 18px 16px;
+  }
+
+  .feed-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .post-card {
+    padding: 18px;
+  }
+
+  .post-actions {
+    justify-content: flex-start;
+    gap: 16px;
+  }
+
+  .post-comment {
+    padding: 12px;
+  }
+
+  .page-theme-toggle {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .user-avatar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    font-size: 0.8rem;
+  }
+
+  .post-card {
+    gap: 12px;
+  }
+
+  .post-text {
+    font-size: 0.95rem;
+  }
+
+  .post-action-btn {
+    font-size: 0.82rem;
+  }
+
+  .post-action-btn svg {
+    width: 17px;
+    height: 17px;
+  }
+
+  .feed-footer {
+    padding: 24px 18px;
+  }
+
+  .create-post-modal-area {
+    gap: 12px;
   }
 }
